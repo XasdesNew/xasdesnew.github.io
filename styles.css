@@ -246,18 +246,67 @@ footer {
   animation: borderGlow 4s infinite;
 }
 
+.menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary);
+  transition: all 0.3s ease-in-out;
+}
+
 @media (max-width: 768px) {
   .section h2 {
     font-size: 2.5em;
   }
   
   header nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease-in-out;
+  }
+  
+  header nav.active {
+    right: 0;
   }
   
   header nav a {
-    margin: 10px 0;
+    margin: 20px 0;
+    font-size: 1.5em;
+  }
+  
+  .menu-button {
+    display: flex;
+  }
+  
+  .menu-button.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  
+  .menu-button.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-button.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
   }
   
   .card-container {

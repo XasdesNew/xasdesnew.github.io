@@ -17,4 +17,19 @@ document.querySelectorAll('nav a').forEach(anchor => {
     const targetSection = document.querySelector(targetId);
     targetSection.scrollIntoView({ behavior: 'smooth' });
   });
+});
+
+const menuButton = document.querySelector('.menu-button');
+const navMenu = document.querySelector('.nav-menu');
+
+menuButton.addEventListener('click', () => {
+  menuButton.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuButton.classList.remove('active');
+    navMenu.classList.remove('active');
+  });
 }); 
